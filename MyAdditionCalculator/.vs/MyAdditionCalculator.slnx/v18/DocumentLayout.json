@@ -1,0 +1,45 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Users\\joana\\CsharpProjects\\MyAdditionCalculator\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{C11F479E-4208-41C8-845C-848C76ED43C5}|MyAdditionCalculator\\MyAdditionCalculator.csproj|d:\\users\\joana\\csharpprojects\\myadditioncalculator\\myadditioncalculator\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C11F479E-4208-41C8-845C-848C76ED43C5}|MyAdditionCalculator\\MyAdditionCalculator.csproj|solutionrelative:myadditioncalculator\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{c6f34f0d-7ae5-4f3a-be61-fe0c21ae9eb8}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{cce594b6-0c39-4442-ba28-10c64ac7e89f}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Users\\joana\\CsharpProjects\\MyAdditionCalculator\\MyAdditionCalculator\\Program.cs",
+              "RelativeDocumentMoniker": "MyAdditionCalculator\\Program.cs",
+              "ToolTip": "D:\\Users\\joana\\CsharpProjects\\MyAdditionCalculator\\MyAdditionCalculator\\Program.cs",
+              "RelativeToolTip": "MyAdditionCalculator\\Program.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACMAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-19T14:15:20.896Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
