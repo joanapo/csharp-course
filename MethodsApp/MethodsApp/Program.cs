@@ -3,7 +3,7 @@
     internal class Program
     {
         //field or instance variable
-        int myResult;
+        static int myResult;
 
         static void Main(string[] args)
         {
