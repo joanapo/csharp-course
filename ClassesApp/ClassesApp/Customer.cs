@@ -12,16 +12,11 @@ namespace ClassesApp
 
 
         // Custom Constructor (ctor shortcut)
-        public Customer(string name, string address, string contactNumber)
+        public Customer(string name, string address = "NA", string contactNumber = "NA")
         {
             Name = name;
             Address = address;
             ContactNumber = contactNumber;
-        }
-
-        public Customer(string name)
-        {
-            Name = name;
         }
 
         // Default constructor
@@ -32,7 +27,7 @@ namespace ClassesApp
             ContactNumber = "Unknown";
         }
 
-        public void SetDetails(string name, string address, string contactNumber)
+        public void SetDetails(string name, string address, string contactNumber = "NA")
         {
             Name = name;
             Address = address;

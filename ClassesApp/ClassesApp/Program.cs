@@ -4,10 +4,10 @@
     {
         static void Main(string[] args)
         {
-            Customer myCustomer = new Customer();
+            Customer customer = new Customer();
 
-            myCustomer.SetDetails("Frank", "Mainstreet 2", "222222");
-            Console.WriteLine("Details about customer: " + myCustomer.Name);
+            customer.SetDetails("Frank", "Mainstreet 2");
+            Console.WriteLine("Details about customer: " + customer.ContactNumber);
 
             Console.ReadKey();
         }
