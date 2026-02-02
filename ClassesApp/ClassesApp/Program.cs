@@ -4,10 +4,13 @@
     {
         static void Main(string[] args)
         {
-            Customer customer = new Customer();
+            Customer customer1 = new Customer();
+            Customer customer2 = new Customer("John Doe");
 
-            customer.SetDetails("Frank", "Mainstreet 2");
-            Console.WriteLine("Details about customer: " + customer.ContactNumber);
+            customer1.GetDetails();
+            customer2.GetDetails();
+
+            customer2.Password = "kdjhjdk2";
 
             Console.ReadKey();
         }
