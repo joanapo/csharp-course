@@ -134,3 +134,8 @@ _NCrunch*
 RocketLandingSimulation/.vs/RocketLandingSimulation.slnx/FileContentIndex/ea1b83c4-ecb0-41c2-8f01-1c71187d1477.vsidx
 MethodsApp/.vs/MethodsApp.slnx/FileContentIndex/e79e5275-38db-474c-8f4d-38d0ed342e3c.vsidx
 *.vsidx
+*.v2
+ClassesApp/.vs/ProjectEvaluation/classesapp.metadata.v10.bin
+*.bin
+*.json
+WeatherStationSimulator/.vs/WeatherStationSimulator.slnx/v18/DocumentLayout.json
