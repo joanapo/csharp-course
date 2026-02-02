@@ -47,5 +47,10 @@ namespace ClassesApp
             Console.WriteLine($"A car of the model {Brand} {Model} has been created.");
             IsLuxury = isLuxury;
         }
+
+        public void Drive()
+        {
+            Console.WriteLine($"I'm a {Model} and I'm driving");
+        }
     }
 }
