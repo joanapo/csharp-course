@@ -7,17 +7,16 @@ namespace ClassesApp
     internal class Car
     {
         // Member variable
-        private string _model = "";
+        // Backing Field of the Model property
         private string _brand = "";
-
-        private bool _isLuxury;
         
         // Property
-        public string Model { get => _model; set => _model = value; }
+        public string Model { get; set; }
+        public bool IsLuxury { get; set; }
         public string Brand {
             get
             {
-                if (_isLuxury)
+                if (IsLuxury)
                 {
                     return _brand + " - Luxury Edition";
                 }
@@ -39,8 +38,6 @@ namespace ClassesApp
                 }
             }
         }
-
-        public bool IsLuxury { get => _isLuxury; set => _isLuxury = value; }
 
         // Constructor
         public Car(string brand, string model, bool isLuxury)
