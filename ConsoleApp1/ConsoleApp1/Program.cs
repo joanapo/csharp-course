@@ -4,22 +4,15 @@
     {
         static void Main(string[] args)
         {
-            List<string> colors = new List<string>();
-
-            colors.Add("red");
-            colors.Add("blue");
-            colors.Add("green");
-
-            foreach (string color in colors)
+            List<int> numbers = new List<int>
             {
-                Console.WriteLine(color);
-            }
+                10, 5, 15, 3, 9
+            };
 
-            colors.Remove("red");
-
-            foreach (string color in colors)
+            numbers.Sort();
+            foreach (int number in numbers)
             {
-                Console.WriteLine(color);
+                Console.WriteLine(number);
             }
 
             Console.ReadLine();
