@@ -1,40 +1,34 @@
 ﻿namespace Dictionaries
 {
+    class Employee
+    {
+        public string Name { get; set; }
+        public int Age { get; set; }
+        public int Salary { get; set; }
+        
+        public Employee(string name, int age, int salary)
+        {
+            Name = name;
+            Age = age;
+            Salary = salary;
+        }
+    }
+    
     internal class Program
     {
         static void Main(string[] args)
         {
-            Dictionary<int, string> employees = new Dictionary<int, string>();
+            Dictionary<int, Employee> employees = new Dictionary<int, Employee>();
 
-            employees.Add(101, "John Doe");
-            employees.Add(102, "Bob Smith");
-            employees.Add(103, "Bob Smith");
-            employees.Add(104, "Bob Smith");
-            employees.Add(105, "Bob Smith");
-            employees.Add(106, "Bob Smith");
-
-            string name = employees[101];
-            //Console.WriteLine(name);
-
-            employees[102] = "Jane Smith";
-
-            employees.Remove(101);
-
-            if (!employees.ContainsKey(101))
+            employees.Add(1, new Employee("John Doe", 35, 10000));
+            employees.Add(2, new Employee("John Does", 35, 1008900));
+            employees.Add(3, new Employee("John Dofe", 35, 100070));
+            employees.Add(4, new Employee("John Dogde", 35, 170000));
+            employees.Add(5, new Employee("John Doeg", 35, 1023000));
+            
+            foreach (var item in employees)
             {
-                employees.Add(101, "Mike Jike");
-            }
-
-            int counter = 101;
-            while (employees.ContainsKey(counter))
-            {
-                counter++;
-            }
-            employees.Add(counter, "Bob Rob");
-
-            foreach (KeyValuePair<int, string> employee in employees)
-            {
-                Console.WriteLine($"ID: {employee.Key}, Name: {employee.Value}");
+                Console.WriteLine($"ID: {item.Key} named: {item.Value.Name}, earns: {item.Value.Salary} and is {item.Value.Age} years old!");
             }
             
             Console.ReadKey();
