@@ -2,26 +2,37 @@
 {
     internal class Program
     {
+        public class Product
+        {
+            public string Name { get; set; }
+            public double Price { get; set; }
+        }
+
         static void Main(string[] args)
         {
-            List<int> numbers = new List<int>{10, 5, 15, 3, 9, 25, 18};
-
-            numbers.Sort();
-            foreach (int number in numbers)
+            List<Product> products = new List<Product>
             {
-                Console.WriteLine(number);
+                new Product {Name = "Apple", Price = 0.80},
+                new Product {Name = "Banana", Price = 0.30},
+                new Product {Name = "Cherry", Price = 3.80},
+            };
+
+            products.Add(new Product { Name = "Berries", Price = 2.99 });
+
+            List<Product> cheapProducts = products.Where(p => p.Price < 1.0).ToList();
+
+            Console.WriteLine("Available Products for less than $1");
+
+            foreach (Product product in cheapProducts)
+            {
+                Console.WriteLine($"Product name: {product.Name} for {product.Price}.");
             }
 
-            bool hasLargeNumber = numbers.Any(x => x > 20);
-            
-            Predicate<int> isGreaterThanTen = x => x > 10;
-            
-            List<int> higherTen = numbers.FindAll(isGreaterThanTen);
+            Console.WriteLine("Available Products");
 
-            Console.WriteLine("Number 10 and higher in our list:");
-            foreach (int number in higherTen)
+            foreach (Product product in products)
             {
-                Console.WriteLine(number);
+                Console.WriteLine($"Product name: {product.Name} for {product.Price}.");
             }
 
             Console.ReadLine();
