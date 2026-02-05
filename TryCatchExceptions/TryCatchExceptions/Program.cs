@@ -17,6 +17,16 @@ namespace TryCatchExceptions
                 int num2 = 2;
                 result = num1 / num2;
             }
+            catch (DivideByZeroException ex)
+            {
+                Console.WriteLine("Don't divide by zero! " + ex.Message);
+            }
+
+            catch (FormatException ex)
+            {
+                Console.WriteLine("I told you to enter a number!" + ex.Message);
+            }
+            
             catch (Exception ex)
             {
                 Console.WriteLine("Error: " + ex.Message);
