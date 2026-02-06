@@ -17,6 +17,17 @@
         {
             Console.WriteLine($"Name: {Name}, Age: {Age}");
         }
+
+       /// <summary>
+       /// Makes our object older!
+       /// </summary>
+       /// <param name="years">The parameter that indicated the amount of years the object should age</param>
+       /// <returns>Returns the new age after becoming older</returns>
+        
+        public int BecomeOlder(int years)
+        {
+            return Age = Age + years;
+        }
     }
     
     public class Employee: Person
@@ -60,6 +71,8 @@
         static void Main(string[] args)
         {
             Manager joe = new Manager("Joe", 36, "Sales Rep", 1234, 7);
+            joe.DisplayManagerInfo();
+            joe.BecomeOlder(5);
             joe.DisplayManagerInfo();
             Console.ReadKey();
         }
