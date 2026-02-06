@@ -39,12 +39,28 @@
         }
     }
 
+    public class Manager: Employee
+    {
+        public int TeamSize { get; private set; }
+
+        public Manager(string name, int age, string jobTitle, int employeeID, int teamSize): base(name, age, jobTitle, employeeID)
+        {
+            TeamSize = teamSize;
+        }
+
+        public void DisplayManagerInfo()
+        {
+            DisplayEmployeeInfo();
+            Console.WriteLine($"Team size: {TeamSize}");
+        }
+    }
+    
     internal class Program
     {
         static void Main(string[] args)
         {
-            Employee joe = new Employee("Joe", 36, "Sales Rep", 1234);
-            joe.DisplayEmployeeInfo();
+            Manager joe = new Manager("Joe", 36, "Sales Rep", 1234, 7);
+            joe.DisplayManagerInfo();
             Console.ReadKey();
         }
     }
