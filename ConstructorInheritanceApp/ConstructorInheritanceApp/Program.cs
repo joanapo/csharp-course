@@ -21,9 +21,21 @@
     
     public class Employee: Person
     {
-        public Employee(string name, int age): base(name, age)
+        public string JobTitle { get; private set; }
+        public int EmployeeID { get; private set; }
+
+        public Employee(string name, int age, string jobTitle, int employeeID): base(name, age)
         {
+            JobTitle = jobTitle;
+            EmployeeID = employeeID;
+            
             Console.WriteLine("Employee (derived class) constructor called");
+        }
+
+        public void DisplayEmployeeInfo()
+        {
+            DisplayPersonInfo();
+            Console.WriteLine($"Job title: {JobTitle}, Employee ID: {EmployeeID}");
         }
     }
 
@@ -31,8 +43,8 @@
     {
         static void Main(string[] args)
         {
-            Employee joe = new Employee("Joe", 36);
-            joe.DisplayPersonInfo();
+            Employee joe = new Employee("Joe", 36, "Sales Rep", 1234);
+            joe.DisplayEmployeeInfo();
             Console.ReadKey();
         }
     }
