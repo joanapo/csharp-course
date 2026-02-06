@@ -7,7 +7,7 @@ namespace InheritanceApp
         static void Main(string[] args)
         {
             Dog myDog = new Dog();
-            myDog.Bark();
+            myDog.MakeSound();
             myDog.Eat();
 
             Console.ReadLine();
@@ -20,21 +20,28 @@ namespace InheritanceApp
         {
             Console.WriteLine("Eating...");
         }
+
+        public virtual void MakeSound()
+        {
+            Console.WriteLine("Generic sound");
+        }
     }
 
     // single class inheritance
     class Dog: Animal
     {
-        public void Bark()
+        public override void MakeSound()
         {
             Console.WriteLine("Woof");
         }
+
+  
     }
 
     // hierarchical inheritance
     class Cat: Animal
     {
-       public void Meow()
+       public override void MakeSound()
         {
             Console.WriteLine("Meow");
         }
@@ -43,7 +50,7 @@ namespace InheritanceApp
     // multilevel inheritance
     class Collie: Dog
     {
-        public void GoingNuts()
+        public virtual void GoNuts()
         {
             Console.WriteLine("Collie going nuts!!");
         }
