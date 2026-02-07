@@ -4,7 +4,15 @@
     {
         static void Main(string[] args)
         {
-            File.AppendAllText("log.txt", "Hello World\n");
+            string directoryPath = @"D:\Logs";
+            string filePath = Path.Combine(directoryPath, "log.txt");
+
+            if (!Directory.Exists(directoryPath))
+            {
+                Directory.CreateDirectory(directoryPath);
+            }
+
+            File.AppendAllText(filePath, "Hello World\n");
             Console.ReadLine();
         }
     }
