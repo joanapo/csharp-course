@@ -1,48 +1,51 @@
 ﻿namespace InterfacesApp
 {
-    public interface IAnimal
+    public interface IPaymentProcessor
     {
-        void MakeSound();
-        void Eat(string food);
+        void ProcessPayment(Decimal amount);
     }
 
-    public class Dog : IAnimal
+    public class CreditCardProcessor : IPaymentProcessor
     {
-        public void Eat(string food)
+        public void ProcessPayment(decimal amount)
         {
-            Console.WriteLine("Dog ate " + food);
-        }
-
-        public void MakeSound()
-        {
-            Console.WriteLine("Woof");
+            Console.WriteLine($"Processing credit card payment of {amount}.");
+            // implement credit card payment logic
         }
     }
 
-    public class Cat : IAnimal
+    public class PayPalProcessor : IPaymentProcessor
     {
-        public void Eat(string food)
+        public void ProcessPayment(decimal amount)
         {
-            Console.WriteLine("Cat ate " + food);
-        }
-
-        public void MakeSound()
-        {
-            Console.WriteLine("Meow");
+            Console.WriteLine($"Processing PayPal payment of {amount}.");
+            // implement PayPal payment logic
         }
     }
 
+    public class PaymentService
+    {
+        private readonly IPaymentProcessor _processor;
+        public PaymentService(IPaymentProcessor processor)
+        {
+            _processor = processor;
+        }
+        public void ProcessOrderPayment(decimal amount)
+        {
+            _processor.ProcessPayment(amount);
+        }
+    }
+    
     internal class Program
     {
         static void Main(string[] args)
         {
-            Dog dog = new Dog();
-            dog.MakeSound();
-            dog.Eat("sausages");
+            IPaymentProcessor creditCsrdProcessor = new CreditCardProcessor();
+            PaymentService paymentService = new PaymentService(creditCsrdProcessor);
+            paymentService.ProcessOrderPayment(100.00m);
 
-            Cat cat = new Cat();
-            cat.MakeSound();
-            cat.Eat("sausages");
+            IPaymentProcessor payPalProcessor = new PayPalProcessor();
+            paymentService.ProcessOrderPayment(200.00m);
 
             Console.ReadKey();
         }
