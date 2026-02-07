@@ -2,6 +2,12 @@
 {
     internal class Program
     {
+        public interface IToolUser
+        {
+            void SetHammer(Hammer hammer);
+            void SetSaw(Saw saw);
+        }
+        
         public class Hammer
         {
             public void Use()
@@ -18,15 +24,25 @@
             }
         }
         
-        public class Builder
+        public class Builder : IToolUser
         {
-            public Hammer Hammer {  get; set; }
-            public Saw Saw { get; set; }
+            private Hammer _hammer;
+            private Saw _saw;
 
+            public void SetHammer(Hammer hammer)
+            {
+                _hammer = hammer;
+            }
+
+            public void SetSaw(Saw saw)
+            {
+                _saw = saw;
+            }
+            
             public void BuildHouse()
             {
-                Hammer.Use();
-                Saw.Use();
+                _hammer.Use();
+                _saw.Use();
                 Console.WriteLine("House built!");
             }
         }
@@ -35,10 +51,9 @@
         {
             Hammer hammer = new Hammer();
             Saw saw = new Saw();
-            Builder builder = new Builder();
-            builder.Hammer = hammer;
-            builder.Saw = saw;
-
+            Builder builder = new Builder(); 
+            builder.SetSaw(saw);
+            builder.SetHammer(hammer);
             builder.BuildHouse();
 
             
