@@ -20,19 +20,13 @@
         
         public class Builder
         {
-            private Hammer _hammer;
-            private Saw _saw;
-
-            public Builder(Hammer hammer, Saw saw)
-            {
-                _hammer = hammer; // constructor dependency injection
-                _saw = saw;
-            }
+            public Hammer Hammer {  get; set; }
+            public Saw Saw { get; set; }
 
             public void BuildHouse()
             {
-                _hammer.Use();
-                _saw.Use();
+                Hammer.Use();
+                Saw.Use();
                 Console.WriteLine("House built!");
             }
         }
@@ -41,7 +35,9 @@
         {
             Hammer hammer = new Hammer();
             Saw saw = new Saw();
-            Builder builder = new Builder(hammer, saw);
+            Builder builder = new Builder();
+            builder.Hammer = hammer;
+            builder.Saw = saw;
 
             builder.BuildHouse();
 
