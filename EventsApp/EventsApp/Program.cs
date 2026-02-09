@@ -1,34 +1,53 @@
 ﻿namespace EventsApp
 {
+
+    public delegate void TemperatureChangeHandler(string message);
+
+    public class TemperatureMonitor
+    {
+        public event TemperatureChangeHandler OnTemperatureChanged;
+
+        private int _temperature;
+        public int Temperature
+        {
+            get { return _temperature; }
+            set
+            {
+                _temperature = value;
+                if (_temperature > 30)
+                {
+                    RaiseTemperatureChangedEvent("Temperature is above threshold!");
+                }
+            }
+        }
+
+        protected virtual void RaiseTemperatureChangedEvent(string message)
+        {
+            OnTemperatureChanged?.Invoke(message);
+        }
+    }
+
+    public class TemperatureAlert
+    {
+        public void OnTemperatureChanged(string message)
+        {
+            Console.WriteLine("Alert: " + message);
+        }
+    }
+
     internal class Program
     {
-        public delegate void Notify(string message);
-
-        public class EventPublisher
-        {
-            public event Notify OnNotify;
-
-            public void RaiseEvent(string message)
-            {
-                OnNotify?.Invoke(message);
-            }
-        }
-
-        public class EventSubscriber
-        {
-            public void OnEventRaised(string message)
-            {
-                Console.WriteLine("Event received: " + message);
-            }
-        }
         
         static void Main(string[] args)
         {
-            EventPublisher publisher = new EventPublisher();
-            EventSubscriber subscriber = new EventSubscriber();
-            publisher.OnNotify += subscriber.OnEventRaised;
+            TemperatureMonitor monitor = new TemperatureMonitor();
+            TemperatureAlert alert = new TemperatureAlert();
+            monitor.OnTemperatureChanged += alert.OnTemperatureChanged;
 
-            publisher.RaiseEvent("test");
+            monitor.Temperature = 20;
+
+            Console.WriteLine("Please enter the temperature");
+            monitor.Temperature = int.Parse(Console.ReadLine());
             
             Console.ReadKey();
         }
