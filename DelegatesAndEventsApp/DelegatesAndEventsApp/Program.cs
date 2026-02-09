@@ -1,42 +1,72 @@
 ﻿namespace DelegatesAndEventsApp
 {
+    public delegate int Comparison<T> (T x, T y);
+
+    public class Person
+    {
+        public int Age { get; set; }
+        public string Name { get; set; }
+    }
+    
+    public class PersonSorter
+    {
+        public void Sort(Person[] people, Comparison<Person> comparison)
+        {
+            for(int i = 0; i< people.Length - 1; i++)
+            {
+                for(int j = i +1; j < people.Length; j++)
+                {
+                    if (comparison(people[i], people[j]) > 0)
+                    {
+                        Person temp = people[i];
+                        people[i] = people[j];
+                        people[j] = temp;
+                    }
+                }
+            }
+
+        }
+    }
+    
     internal class Program
     {
         static void Main(string[] args)
         {
-            int[] intArray = {1, 2, 3};
-            string[] stringArray = { "One", "Two", "Three" };
+            Person[] people =
+            {
+                new Person{Name = "Alice", Age = 30},
+                new Person{Name = "Bob", Age = 25},
+                new Person{Name = "Denis", Age = 36 },
+                new Person{Name = "Charlie", Age = 35}
+            };
 
-            PrintArray(intArray);
-            PrintArray(stringArray);
-            
+            PersonSorter sorter = new PersonSorter();
+            sorter.Sort(people, CompareByAge);
+
+            foreach (Person person in people)
+            {
+                Console.WriteLine($"{person.Name}, {person.Age}");
+            }
+
+
+            sorter.Sort(people, CompareByName);
+
+            foreach(Person person in people)
+            {
+                Console.WriteLine($"{person.Name}, {person.Age}");
+            }
+
             Console.ReadKey();
         }
 
-        public static void PrintIntArray(int[] array)
+        static int CompareByAge(Person person1, Person person2)
         {
-            foreach (int i in array)
-            {
-                Console.WriteLine(i); 
-            }
+            return person1.Age.CompareTo(person2.Age);
         }
 
-        public static void PrintStringArray(string[] array)
+        static int CompareByName(Person person1, Person person2)
         {
-            foreach(string s in array)
-            {
-                Console.WriteLine(s);
-            }
-        }
-
-        
-        // a generic method that accepts a generic datatyoe
-        public static void PrintArray<T>(T[] array)
-        {
-            foreach (T item in array)
-            {
-                Console.WriteLine(item);
-            }
+            return person1.Name.CompareTo(person2.Name);
         }
 
     }
