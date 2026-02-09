@@ -1,12 +1,9 @@
-﻿using System.Security.Cryptography.X509Certificates;
-
-namespace DelegatesApp
+﻿namespace DelegatesApp
 {
+    // 1. Declaration:
+    public delegate void Notify(string message);
     internal class Program
     {
-        // 1. Declaration:
-        public delegate void Notify(string message);
-
         static void Main(string[] args)
         {
             // 2. Instantiation:
