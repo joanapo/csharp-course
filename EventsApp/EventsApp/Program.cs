@@ -1,11 +1,21 @@
 ﻿namespace EventsApp
 {
 
-    public delegate void TemperatureChangeHandler(string message);
+    //public delegate void TemperatureChangeHandler(string message);
+
+    public class TemperatureChangedEventArgs : EventArgs
+    {
+        public int Temperature { get; }
+        public TemperatureChangedEventArgs(int temperature)
+        {
+            Temperature = temperature;
+        }
+    }
 
     public class TemperatureMonitor
-    {
-        public event TemperatureChangeHandler OnTemperatureChanged;
+    {   
+        public event EventHandler<TemperatureChangedEventArgs> TemperatureChanged;
+        //public event TemperatureChangeHandler OnTemperatureChanged;
 
         private int _temperature;
         public int Temperature
@@ -13,25 +23,25 @@
             get { return _temperature; }
             set
             {
-                _temperature = value;
-                if (_temperature > 30)
+                if (_temperature != value)
                 {
-                    RaiseTemperatureChangedEvent("Temperature is above threshold!");
+                    _temperature = value;
+                    OnTemperatureChanged(new TemperatureChangedEventArgs(_temperature));5
                 }
             }
         }
 
-        protected virtual void RaiseTemperatureChangedEvent(string message)
+        protected virtual void OnTemperatureChanged(TemperatureChangedEventArgs e)
         {
-            OnTemperatureChanged?.Invoke(message);
+            TemperatureChanged?.Invoke(this, e);
         }
     }
 
     public class TemperatureAlert
     {
-        public void OnTemperatureChanged(string message)
+        public void OnTemperatureChanged(object sender, TemperatureChangedEventArgs e)
         {
-            Console.WriteLine("Alert: " + message);
+            Console.WriteLine($"Alert: temperature is {e.Temperature}, sender is {sender}");
         }
     }
 
@@ -42,7 +52,7 @@
         {
             TemperatureMonitor monitor = new TemperatureMonitor();
             TemperatureAlert alert = new TemperatureAlert();
-            monitor.OnTemperatureChanged += alert.OnTemperatureChanged;
+            monitor.TemperatureChanged += alert.OnTemperatureChanged;
 
             monitor.Temperature = 20;
 
