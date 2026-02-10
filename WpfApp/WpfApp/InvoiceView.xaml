@@ -22,7 +22,7 @@
         </Grid.RowDefinitions>
 
         <Label Grid.Column="1" Grid.Row="1" Content="Mock Invoice Data" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" />
-        <TextBlock Text="Hello WOrld" Grid.Column="1" Grid.Row="3"/>
+        <TextBlock Text="Hello World" Grid.Column="1" Grid.Row="3"/>
 
     </Grid>
 </UserControl>
