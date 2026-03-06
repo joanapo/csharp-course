@@ -140,3 +140,6 @@ ClassesApp/.vs/ProjectEvaluation/classesapp.metadata.v10.bin
 *.json
 WeatherStationSimulator/.vs/WeatherStationSimulator.slnx/v18/DocumentLayout.json
 *.slnx
+*.mdf
+*.ldf
+*.config
