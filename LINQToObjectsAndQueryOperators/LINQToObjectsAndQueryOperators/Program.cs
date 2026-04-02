@@ -16,6 +16,7 @@ namespace LINQToObjectsAndQueryOperators
             um.FemaleStudents();
             um.SortStudentsByAge();
             um.AllStudentsFromBeijingTech();
+            um.StudentAndUniversityNameCollection();
 
             Console.Write("Input the university ID: ");
             string input = Console.ReadLine();
