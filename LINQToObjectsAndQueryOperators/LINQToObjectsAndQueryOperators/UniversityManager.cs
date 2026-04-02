@@ -45,5 +45,47 @@ namespace LINQToObjectsAndQueryOperators
                 student.Print();
             }
         }
+
+        public void SortStudentsByAge()
+        {
+            var sortedStudents = from student in students orderby student.Age select student;
+            
+            Console.WriteLine("Students sorted by Age");
+
+            foreach(Student student in sortedStudents)
+            {
+                student.Print();
+            }
+        }
+
+        public void AllStudentsFromBeijingTech()
+        {
+            IEnumerable<Student> bjtStudents = from student in students 
+                                               join university in universities on student.UniversityId equals university.Id
+                                               where university.Name == "Beijing Tech"
+                                               select student;
+
+            Console.WriteLine("Students from Beijing Tech");
+
+            foreach(Student student in bjtStudents)
+            {
+                student.Print();
+            }
+        }
+
+        public void AllStudentsFromSpecificUni(int Id)
+        {
+            IEnumerable<Student> allStudents = from student in students
+                                               join university in universities on student.UniversityId equals university.Id
+                                               where university.Id == Id
+                                               select student;
+
+            Console.WriteLine("Students from University {0}", Id);
+
+            foreach (Student student in allStudents)
+            {
+                student.Print();
+            }
+        }
     }
 }

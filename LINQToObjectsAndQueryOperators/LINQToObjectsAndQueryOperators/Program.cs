@@ -14,6 +14,21 @@ namespace LINQToObjectsAndQueryOperators
 
             um.MaleStudents();
             um.FemaleStudents();
+            um.SortStudentsByAge();
+            um.AllStudentsFromBeijingTech();
+
+            Console.Write("Input the university ID: ");
+            string input = Console.ReadLine();
+            try
+            {
+                int inputAsInt = Convert.ToInt32(input);
+
+                um.AllStudentsFromSpecificUni(inputAsInt);
+            }
+            catch (Exception)
+            {
+                Console.WriteLine("Wrong value");
+            }
 
             Console.ReadLine();
         }
