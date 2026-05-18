@@ -4,10 +4,12 @@
     {
         static void Main(string[] args)
         {
-            Logger logger = new Logger();
-
-            logger.Log<int>(10);
-            logger.Log("Hello World");
+            Box<Book> bookBox = new Box<Book>();
         }
+    }
+
+    class Book
+    {
+
     }
 }
