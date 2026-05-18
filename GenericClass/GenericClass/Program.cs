@@ -4,8 +4,10 @@
     {
         static void Main(string[] args)
         {
-            Box<int, string> box = new Box<int, string>(100, "one hundred");
-            box.Display();
+            Logger logger = new Logger();
+
+            logger.Log<int>(10);
+            logger.Log("Hello World");
         }
     }
 }
