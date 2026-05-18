@@ -4,12 +4,14 @@
     {
         static void Main(string[] args)
         {
-            Box<Book> bookBox = new Box<Book>();
+            Repository<Product> repository = new Repository<Product>();
+            var product = new Product();
+            repository.Add(product);
         }
     }
 
-    class Book
+    class Product : IEntity
     {
-
+        public int Id { get; set; }
     }
 }
