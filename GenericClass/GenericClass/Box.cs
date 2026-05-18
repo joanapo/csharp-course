@@ -6,11 +6,22 @@ namespace GenericClass
 {
     internal class Box<T>
     {
-        public T Content { get; set; }
+        private T content;
 
-        public string Log()
+        public Box(T initialValue)
         {
-            return $"Box contains {Content}";
+            content = initialValue;
+        }
+
+        public void UpdateContent(T newContent)
+        {
+            content = newContent;
+            Console.WriteLine($"Updated content to {content}");
+        }
+
+        public T GetContent()
+        {
+            return content;
         }
     }
 }
