@@ -7,13 +7,18 @@
         }
     }
 
-    internal interface IRepository<T>
+    internal interface IEntity
+    {
+        int Id { get; }
+    }
+    
+    internal interface IRepository<T> where T: IEntity
     {
         void Add(T entity);
         void Remove(T entity);
     }
 
-    internal class Product
+    internal class Product : IEntity
     {
         public int Id { get; set; }
         public string Name { get; set; }
